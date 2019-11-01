@@ -10,16 +10,16 @@ if (isset($_POST['submit'])) {
   	$results = mysqli_query($db, $query);
   	if (mysqli_num_rows($results) == 1) {
 	  array_push($errors, "Already Registered");
-	  }
-	  else{
+	 }
+    else{
 	$name= mysqli_real_escape_string($db, $_POST['name']);
 	$c_b = mysqli_real_escape_string($db, $_POST['course_branch']);
 	$arr = explode(" ", $c_b);
 	$course = $arr[0];
 	$branch = $arr[1];
-	if(empty($branch)){
-		$branch = "NULL";
-	}
+		if(empty($branch)){
+			$branch = "NULL";
+		}
 	$semester = mysqli_real_escape_string($db, $_POST['sem']);
 	$FName = mysqli_real_escape_string($db, $_POST['Father_Name']);
 	$MName = mysqli_real_escape_string($db, $_POST['Mother_Name']);
@@ -39,15 +39,21 @@ if (isset($_POST['submit'])) {
 	$twelve = mysqli_real_escape_string($db, $_POST['twelvth']);
 	$pass = mysqli_real_escape_string($db, $_POST['passyear']);
 	$password = password_hash($password,PASSWORD_DEFAULT);
-     $pic = addslashes(file_get_contents($_FILES["pic"]["tmp_name"]));
-	 $sign = addslashes(file_get_contents($_FILES["sign"]["tmp_name"]));
+    $pic = addslashes(file_get_contents($_FILES["pic"]["tmp_name"]));
+	$sign = addslashes(file_get_contents($_FILES["sign"]["tmp_name"]));
 
-
+	$q1 = "Select * from verify where Enrollment_no = '$username' and Branch = '$c_b' and Email = '$email'";
+	$results = mysqli_query($db, $q1);
+	$row=mysqli_fetch_assoc($results);
+  	if (mysqli_num_rows($results) == 1){
      // Insert record
-	$query = "INSERT INTO `register` (`ID`, `Enrollment_No`, `Name`, `Course`, `Branch`, `Semester`, `Year`, `Father's_Name`, `Mother's_Name`, `DOB`, `Address Line 1`, `City`, `District`, `State`, `Pincode`, `Contact_No`, `Alternate_Contact`, `Password`, `Email_ID`, `Security_Question`, `Security_Answer`, `10th_percent`, `12th_percent`, `Passing_12th`, `Photo`, `Signature`) VALUES (NULL, '$username', '$name', '$course', '$branch', '$semester', 2019, '$FName', '$MName', '$dob', '$add', '$City', '$distt', '$state', '$pin', '$contact', '$alt_cont', '$password', '$email', '$sec_ques', '$sec_ans', '$ten', '$twelve', '$pass', '$pic', '$sign')";
-	mysqli_query($db, $query);
-	
+		$query = "INSERT INTO `register` (`ID`, `Enrollment_No`, `Name`, `Course`, `Branch`, `Semester`, `Year`, `Father's_Name`, `Mother's_Name`, `DOB`, `Address Line 1`, `City`, `District`, `State`, `Pincode`, `Contact_No`, `Alternate_Contact`, `Password`, `Email_ID`, `Security_Question`, `Security_Answer`, `10th_percent`, `12th_percent`, `Passing_12th`, `Photo`, `Signature`) VALUES (NULL, '$username', '$name', '$course', '$branch', '$semester', 2019, '$FName', '$MName', '$dob', '$add', '$City', '$distt', '$state', '$pin', '$contact', '$alt_cont', '$password', '$email', '$sec_ques', '$sec_ans', '$ten', '$twelve', '$pass', '$pic', '$sign')";
+		mysqli_query($db, $query);
+		header('location:front.php');
+	}else{
+			array_push($errors, "Wrong Combination of Enrollment_no, Email Id and Branch");
+		}
 	}
-	}
+}
 
 ?>

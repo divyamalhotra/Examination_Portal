@@ -32,9 +32,8 @@ if (isset($_POST['submit'])) {
 	
 	$query = "INSERT INTO `faculty` (`ID`, `Salutation`,`Name`, `DOB`, `Designation`, `Department`, `Email ID`, `Contact`, `Intercom`, `Room`, `Password`, `Security Question`, `Security Answer`,`Photo`,`Signature`) VALUES (NULL, '$sal', '$name', '$dob', '$dsgn', '$depart', '$email', '$contact', '$intercom', '$room', '$password', '$sec_ques', '$sec_ans','$pic','$sign')";
 	mysqli_query($db, $query);
-	
-	}
+
 	header('location:front.php');
 	}
-
+}
 ?>

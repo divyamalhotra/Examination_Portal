@@ -92,7 +92,7 @@
     <p align="center" style="color: red;">**Please input the details carefully and correctly.**</p>
     <br />
     <br />
-    <form name="myform" align="center" class="form-horizontal" role="form" id="regForm" action="registeration2.php" method="post" enctype="multipart/form-data">
+    <form name="myform" align="center" class="form-horizontal" role="form" id="regForm"  method="post" enctype="multipart/form-data">
         <div class="tab">
             <div class="form-group">
                 <label class="col-sm-4 control-label">Enrollment Number</label>

@@ -16,7 +16,7 @@
         $("#add").click(function(){
 		ind =ind +1;
             $("#new").append(`<table cellpadding=25px id="`+ind+`">
-			<tr><td>Course <select class='form-control' name='select1` + ind +  `' id="select1` + ind + `" required>
+			<tr><td>Programme <select class='form-control' name='select1` + ind +  `' id="select1` + ind + `" required>
 			<option value=''>Please select from below</option>
 			<option value='B.Tech IT'>B.Tech IT</option>
 			<option value='B.Tech CSE'>B.Tech CSE</option>
@@ -318,7 +318,7 @@
 	   while($rows = mysqli_fetch_assoc($res)){
 	   if($i == 1){
 	   	   ?>
-		  <tr><td>Course</td><td>Semester</td><td>Subject</td><td>Batch</td></tr> 
+		  <tr><td>Programme</td><td>Semester</td><td>Subject</td><td>Batch</td></tr> 
 		   <?php
 		   $i =0;
 	   }
@@ -349,7 +349,7 @@
 	<input type="hidden" id="id" name="id" value=""/>
 	<div id="new">
 	</div>
-	<button type="submit" value="submit" name="set" class="sbmtbtn" style="background:green">Add papers</button>
+	<button type="submit" value="submit" name="set" class="sbmtbtn" style="background:green">Submit papers</button>
 	</form>
 	
  </div>

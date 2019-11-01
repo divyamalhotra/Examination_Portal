@@ -49,7 +49,7 @@
   
 
   <br><br>
-<form enctype="multipart/form-data" method="post" accept-charset="utf-8" target="ConnectionF.jsp" >
+<form enctype="multipart/form-data" method="post" accept-charset="utf-8"  >
   <table width='70%' cellpadding=10px style="font-size: 20px;padding:4%">
   <tr>
   <div class="form-group">
@@ -63,7 +63,7 @@
 		<option value="Mrs. ">Mrs.</option>
 		<option value="Ms. ">Ms.</option>
 		<option value="Ar. ">Ar.</option>
-		</select><input name="name" style="width:140px;height:20px" maxlength="100" type="text" required autocomplete="off"></div></td></div>
+		</select><input name="name" style="width:140px;height:20px" maxlength="100" type="text" required autocomplete="off" placeholder="Username"></div></td></div>
   <div class="form-group">
    <td> <label class="col-sm-4 control-label">Designation</label></td>
     <td><div class="col-sm-4">
@@ -85,8 +85,9 @@
 	<option value="Mechanical and Automation Engineering">Mechanical and Automation Engineering</option>
 	<option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
 	<option value="Basic Applied Science">Basic Applied Science</option>
-	<option value="Research and Collaboration">Research and Collaboration</option>
 	<option value="Architecture and Planning">Architecture and Planning</option>
+	<option value="Management">Department of Management</option>
+	<option value="Others">Others</option>
    </select></div></td></div>
    <div class="form-group">
    <td><label class="col-sm-4 control-label">Date Of Birth</label></td>
@@ -103,7 +104,7 @@
 
 <tr><div class="form-group">
    <td> <label class="col-sm-4 control-label">Intercom No. </label></td>
-<td><div class="col-sm-4"><input name="intercom" style="width:190px;height:20px" maxlength="11" type="text"  required autocomplete="off"></div></td></div>
+<td><div class="col-sm-4"><input name="intercom" style="width:190px;height:20px"  type="number" autocomplete="off"></div></td></div>
 <div class="form-group">
    <td> <label class="col-sm-4 control-label">Room No. </label> </td>
    <td><div class="col-sm-4"><input name="room" style="width:190px;height:20px" type="number"  required autocomplete="off"></div></td></div></tr>

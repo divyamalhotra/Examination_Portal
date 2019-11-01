@@ -74,7 +74,7 @@ th {
 	</tr>
     </center>
 <?php 
-
+  header( "refresh:0");
  session_start();
 $con = mysqli_connect('localhost','root','','student');
 //mysqli_select_db($con,'assessmentportal');
@@ -111,7 +111,7 @@ if($con === false)
 								    }
                                 else if($obj[4] == 'ECE')
                                  $code = '24'.'_';
-                                else if($obj[4] == 'MECH')
+                                else if($obj[4] == 'MAE')
                                  $code = '25'.'_';
             $sem = $obj[5].'_';
             $year = $obj[6];

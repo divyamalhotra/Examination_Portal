@@ -60,8 +60,17 @@ $_SESSION['paper'] = 'selectPapers.php';
 			<br><br>
             <img src="<?php echo $imagesrc; ?>" style="text-align: center" class="img-circle" height='100%' width ='100%' alt="Profile Pic">
 			<br>
-			<img src="<?php echo $image2src; ?>" style="text-align: center" class="img-circle" height='100%' width ='100%' alt="Profile Pic">
+			<?php 
+			if(!empty($row['Signature'])){
+			?>
+			<img src="<?php echo $image2src; ?>" style="text-align: center" class="img-circle" height='100%' width ='100%' >
             <hr>
+			<?php }
+			else{
+			?>
+			<br><br><br><br><br>
+			<?php
+			}?>
 
             <div class="stt">
                 <p>Name:<?php echo $row["Salutation"].$user;?></p>
@@ -70,7 +79,7 @@ $_SESSION['paper'] = 'selectPapers.php';
 
             </div>
         </div>
-        <div id="side" style="margin-top: -29%;">
+        <div id="side" style="margin-top: -29%">
             <br>
             <p style="text-align: center;font-size: 24px">Faculty BASIC DETAILS</p>
             <br><br>
