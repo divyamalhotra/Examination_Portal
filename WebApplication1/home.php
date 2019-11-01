@@ -2,6 +2,8 @@
   session_start();
 $db = mysqli_connect('localhost', 'root', '', 'student');
 $user = $_SESSION['username'];
+$_SESSION['link'] = 'home.php';
+$_SESSION['paper'] = 'paper.php';
 ?>
 <!DOCTYPE html>
 <html lan="en">
@@ -14,16 +16,21 @@ $user = $_SESSION['username'];
 </head>
 <body>
 
-    <div id="image">
-        <img src="url('https://img.collegepravesh.com/2015/12/IGDTUW-Logo.png')" alt="IGDTUW" width="50" height="50" align="center">
+   <div id="image">
+        <img src="https://img.collegepravesh.com/2015/12/IGDTUW-Logo.png" alt="IGDTUW" width="150" height="150"  style="margin-left:8%">
     </div>
-
+	<div class="top" style=" margin-top:-10%;margin-left:23%; align:center">
+	<p style="font-size:30px; color:green"><b>INDIRA GANDHI DELHI TECHNICAL UNIVERSITY FOR WOMEN</b></p>
+	<p style="margin-left:33%; margin-top:-2%; font-size:20px"><b>Kashmere Gate, Delhi-110006<b></p>
+	</div>
+	<br>
+	<hr size='10'; color='green'></hr>
     <div id="navbar">
         <ul>
-            <li><a href="http://igdtuw.ac.in">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="paper.php">Display Papers</a></li>
             <li><a href="#contact">Attendance</a></li>
-            <li><a href="#about">Results</a></li>
+            <li><a href="result.php">Results</a></li>
             <li><a href="#about">Notifications</a></li>
         </ul>
     </div>
@@ -31,7 +38,7 @@ $user = $_SESSION['username'];
     <div id="navbar1">
         <ul>
             <li><a href="#enrollno.">Welcome <?php echo $user; ?></a></li>
-            <li><a href="#news">Change password</a></li>
+            <li><a href="changePassword.php">Change password</a></li>
             <li><a href="front.php?logout='1'">Log Out</a></li>
 
         </ul>
@@ -40,19 +47,24 @@ $user = $_SESSION['username'];
 	$query = "SELECT * FROM register WHERE Enrollment_No='$user'";
     $results = mysqli_query($db, $query);
     $row=mysqli_fetch_assoc($results);
+	$imagesrc = 'data:image/jpeg;base64,'.base64_encode( $row['Photo'] ).'';
+	$image2src = 'data:image/jpeg;base64,'.base64_encode( $row['Signature'] ).'';
     ?>
     <div id="maincontent">
 
         <div id="details">
 
-            <div class="det">
-                <p>Profile</p>
+            <div class="det" style="height: 10%;background-color:green;">
+                <p style="color: white;background-color:green;">Profile</p>
             </div>
-            <img src="photo.jpg" style="text-align: center" class="img-circle" alt="Logo">
+			<br><br>
+            <img src="<?php echo $imagesrc; ?>" style="text-align: center" class="img-circle" height='100%' width ='100%' alt="Profile Pic">
+			<br>
+			<img src="<?php echo $image2src; ?>" style="text-align: center" class="img-circle" height='100%' width ='100%' alt="Profile Pic">
             <hr>
 
             <div class="stt">
-                <p>Enrollment No1:<?php echo $user;?></p>
+                <p>Enrollment No:<?php echo $user;?></p>
                 <hr style="border-top: dotted 1px;" />
                 <p>Name:<?php echo $row["Name"];?></p>
                 <hr style="border-top: dotted 1px;" />
@@ -62,23 +74,22 @@ $user = $_SESSION['username'];
 
             </div>
         </div>
-        <div id="side">
+        <div id="side" style="margin-top: -39%;">
             <br>
-            <p style="text-align: center;">STUDENT BASUC DETAILS</p>
+            <p style="text-align: center;font-size: 24px">STUDENT BASIC DETAILS</p>
             <br><br>
-            <div id="as">
+            <div id="as" style="font-size: 20px;margin-top: -4%">
                 <p>Father's Name:             <?php echo $row["Father's_Name"];?></p>
                 <p>Mother's Name:             <?php echo $row["Mother's_Name"];?></p>
 				<?php 
 				$add = $row["Address Line 1"];
+				$city = $row["City"];
 				$distt = $row["District"];
 				$state = $row["State"];
 				$pin = $row["Pincode"];
-				$a = $add.', '.$distt.', '.$state.'-'.$pin;
+				$a = $add.', '.$city.', '.$distt.', '.$state.' - '.$pin;
 				?>
                 <p>Address:                   <?php echo $a;?></p>
-                <br>
-                <br>
                 <p>Mobile No. :               <?php echo $row["Contact_No"];?></p>
                 <p>Email-Id :                 <?php echo $row["Email_ID"];?></p>
             </div>
