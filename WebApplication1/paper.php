@@ -35,6 +35,7 @@ if (isset($_GET['error'])) {
             <li><a href="paper.php">Display Papers</a></li>
             <li><a href="#contact">Attendance</a></li>
             <li><a href="result.php">Results</a></li>
+			<li><a href="admitcard.php">Admit Card</a></li>
             <li><a href="#about">Notifications</a></li>
         </ul>
     </div>
@@ -65,9 +66,7 @@ if (isset($_GET['error'])) {
         $course = $row["Course"];
         $sem = $row["Semester"]; 
 		$table = "table";
-		if($course == 'B.Tech' and (($sem == 1) or ($sem == 2))){
-			$branch = "NULL";
-		}
+		
 		if($course == 'B.Tech'){
 			if($branch == 'CSE'){
 				if($user <= '07001012016'){
@@ -83,7 +82,7 @@ if (isset($_GET['error'])) {
 				}
 			}else if($branch == 'ECE'){
 				 $table = '24_'.$sem.'_2019';
-			}else{
+			}else if($branch == 'MAE'){
 				 $table = '25_'.$sem.'_2019';
 			}
 		}else if($course == 'B.Arch'){
@@ -99,9 +98,13 @@ if (isset($_GET['error'])) {
 				$table = '30_'.$sem.'_2019';
 			}else if($branch == 'ECE'){
 				 $table = '31_'.$sem.'_2019';
-			}else{
+			}else if($branch == 'MAE'){
 				 $table = '32_'.$sem.'_2019';
 			}
+		}
+
+		if($course == 'B.Tech' and (($sem == 1) or ($sem == 2))){
+			$branch = "NULL";
 		}
 		//updating backend for all
 		if (isset($_POST['submit'])){

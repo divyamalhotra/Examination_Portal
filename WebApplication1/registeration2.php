@@ -83,7 +83,6 @@
     </div>
     <ul class="nav nav-tabs nav-justified">
         <li><a href="registeration1.html">Instructions</a></li>
-        <li><a href="verificationpge.html">Verification</a></li>
         <li class="active"><a data-toggle="tab" href="#">Registration</a></li>
     </ul>
     <br>
@@ -228,13 +227,13 @@
             <div class="form-group">
                 <label class="col-sm-4 control-label"> Password</label><br>
                 <div class="col-sm-4">
-                    <input class="form-control" id="pass" type="password" name="Password" maxlength="30" required="required">
+                    <input class="form-control" id="pass" type="password" name="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" maxlength="30" required="required">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-4 control-label"> Confirm Password</label><br>
                 <div class="col-sm-4">
-                    <input class="form-control" id="cpass" type="password" name="confirmPassword" maxlength="30" required="required" onChange="checkPasswordMatch();">
+                    <input class="form-control" id="cpass" type="password" name="confirmPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" maxlength="30" required="required" onChange="checkPasswordMatch();">
                 </div>
             </div>
             <div class="registrationFormAlert" id="divCheckPasswordMatch" style="color:red;"></div>

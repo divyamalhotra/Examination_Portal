@@ -31,6 +31,7 @@ $_SESSION['paper'] = 'paper.php';
             <li><a href="paper.php">Display Papers</a></li>
             <li><a href="#contact">Attendance</a></li>
             <li><a href="result.php">Results</a></li>
+			<li><a href="admitcard.php">Admit Card</a></li>
             <li><a href="#about">Notifications</a></li>
         </ul>
     </div>
