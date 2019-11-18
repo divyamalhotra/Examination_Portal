@@ -137,10 +137,10 @@
 
 <tr><div class="form-group">
    <td> <label class="col-sm-4 control-label"> Password</label></td>
-   <td><div class="col-sm-4"><input id= "pass" name="pass" type="password" style="width:auto"  required autocomplete="off"></div></td></div>
+   <td><div class="col-sm-4"><input id= "pass" name="pass" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" style="width:auto"  required autocomplete="off"></div></td></div>
 <div class="form-group">
    <td> <label class="col-sm-4 control-label">Confirm Password</label></td>
-   <td><div class="col-sm-4"><input id="cpass" name="confirm" type="password"  required autocomplete="off" onChange="checkPasswordMatch();" ></div>
+   <td><div class="col-sm-4"><input id="cpass" name="confirm" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required autocomplete="off" onChange="checkPasswordMatch();" ></div>
 </td></div></tr>
 
 <tr><td></td><td></td><td></td><td><div class="registrationFormAlert" id="divCheckPasswordMatch" style="color:red;"></div></td></tr>

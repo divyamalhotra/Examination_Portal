@@ -37,6 +37,14 @@ if (isset($_POST['login_user'])) {
   	}else {
   		array_push($errors, "Wrong username/password combination");
   	}
+  }else if($username == 'admin'){
+	if($password == 'admin'){
+	$_SESSION['username'] = $username;
+	header('location: homeA.php');
+	}else{
+		array_push($errors, "Wrong Password, Access Denied for admin login");
+	}
+  
   }else{
 		$query = "SELECT Password FROM faculty WHERE Name='$username'";
   	$results = mysqli_query($db, $query);
@@ -49,7 +57,6 @@ if (isset($_POST['login_user'])) {
   		array_push($errors, "Wrong username/password combination");
   	}
   }
-	mysqli_free_result($results);
   }
 }
 ?> 
