@@ -74,7 +74,7 @@ th {
 	</tr>
     </center>
 <?php 
- 
+  header( "refresh:0");
  session_start();
 $con = mysqli_connect('localhost','root','','student');
 //mysqli_select_db($con,'assessmentportal');
@@ -97,28 +97,47 @@ if($con === false)
 		$sql =  "SELECT * FROM `register` WHERE  Enrollment_No = '$rollno' ";
             $result = mysqli_query($con,$sql);
             $obj = mysqli_fetch_row($result); 
-                              if($obj[4] == 'CSE')
-								    { if( $rollno <= '07001012019'){
-					                   $code = '20'.'_';
-						                }else{
-					                      $code = '21'.'_';}
-								    }
-                                else if($obj[4] == 'IT')
+            if($obj[3] == 'B.Tech')
+            {
+                    if($obj[4] == 'CSE')
+                    { if( $rollno <= '07001012019'){
+                             $code = '20'.'_';
+                            }else{
+                                $code = '21'.'_';}
+                    }
+                    else if($obj[4] == 'IT')
                                 { if( $rollno <= '07001012019'){
-					                   $code = '22'.'_';
-						                }else{
-					                      $code = '23'.'_';}
-								    }
-                                else if($obj[4] == 'ECE')
+                             $code = '22'.'_';
+                            }else{
+                                $code = '23'.'_';}
+                    }
+                    else if($obj[4] == 'ECE')
                                  $code = '24'.'_';
-                                else if($obj[4] == 'MAE')
+                    else if($obj[4] == 'MECH')
                                  $code = '25'.'_';
+            }
+            else if($obj[3] == 'BBA'){
+                                    $code = '27'.'_';
+            }else if($obj[3] == 'MCA'){
+                                    $code = '28'.'_';
+            }else if($obj[3] == 'M.Tech'){
+                                    if($obj[4] == 'CSE'){
+                                        $code = '29'.'_';
+                                    }else if($obj[4] == 'IT'){
+                                        $code = '30'.'_';
+                                    }else if($obj[4] == 'ECE'){
+                                         $code = '31'.'_';
+                                    }else{
+                                         $code = '32'.'_';
+                                    }
+            }
+
             $sem = $obj[5].'_';
             $year = $obj[6];
            //$subcode = $obj[2];
         $mysql_tb = $code.$sem.$year;
 		//$mysql_tb = $code.$sem.$year;
-		echo $mysql_tb;
+		//echo $mysql_tb;
 		$query = "SELECT * FROM `".$mysql_tb."` WHERE rollno = '$rollno' ";
         $result = mysqli_query($con,$query);
 
