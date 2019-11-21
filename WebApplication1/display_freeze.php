@@ -1,8 +1,9 @@
+<?php include ('config.php') ?>
 <?php  
 
 
 session_start();
-$con = mysqli_connect('localhost','root','','student');
+$con = $db;
 //mysqli_select_db($con,'assessmentportal');
 if($con === false) 
 {

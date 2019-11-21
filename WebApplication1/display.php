@@ -1,3 +1,4 @@
+<?php include ('config.php') ?>
 <!DOCTYPE html>
 <html lan="en">
 <head>
@@ -42,7 +43,7 @@
    
     <?php  
          session_start();
-         $con = mysqli_connect('localhost','root','','student');
+         $con = $db;
         //mysqli_select_db($con,'assessmentportal');
         if($con === false) 
         {

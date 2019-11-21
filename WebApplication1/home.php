@@ -1,6 +1,7 @@
-﻿<?php
+﻿<?php include ('config.php') ?>
+<?php
   session_start();
-$db = mysqli_connect('localhost', 'root', '', 'student');
+
 $user = $_SESSION['username'];
 $_SESSION['link'] = 'home.php';
 $_SESSION['paper'] = 'paper.php';
@@ -72,13 +73,13 @@ $_SESSION['paper'] = 'paper.php';
 
         <div id="details">
 
-            <div class="det" style="height: 10%;background-color:green;">
+            <div class="det" style="height: 5%;background-color:green;">
                 <p style="color: white;background-color:green;">Profile</p>
             </div>
 			<br><br>
-            <img src="<?php echo $imagesrc; ?>" style="text-align: center" class="img-circle" height='100%' width ='100%' alt="Profile Pic">
+            <img src="<?php echo $imagesrc; ?>" style="text-align: center" class="img-circle" height='20%' width ='100%' alt="Profile Pic">
 			<br>
-			<img src="<?php echo $image2src; ?>" style="text-align: center" class="img-circle" height='100%' width ='100%' alt="Profile Pic">
+			<img src="<?php echo $image2src; ?>" style="text-align: center" class="img-circle" height='20%' width ='100%' alt="Profile Pic">
             <hr>
 
             <div class="stt">
@@ -92,11 +93,18 @@ $_SESSION['paper'] = 'paper.php';
 
             </div>
         </div>
-        <div id="side" style="margin-top: -39%;">
+        <div id="side" style="margin-top: -43%;">
             <br>
             <p style="text-align: center;font-size: 24px">STUDENT BASIC DETAILS</p>
             <br><br>
+			<?php 
+			$course = $row["Course"];
+			if($row["Branch"] != "NULL"){
+				$course = $course.' '.$row["Branch"];
+			}
+			?>
             <div id="as" style="font-size: 20px;margin-top: -4%">
+			    <p>Course:					  <?php echo $course;?></p>
                 <p>Father's Name:             <?php echo $row["Father's_Name"];?></p>
                 <p>Mother's Name:             <?php echo $row["Mother's_Name"];?></p>
 				<?php 

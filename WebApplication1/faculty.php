@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width-device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style1.css">
+	<link rel="stylesheet" type="text/css" href="style3.css">
     <link rel="stylesheet" type="text/css" href="design.css">
 	<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
     <link type="text/css" href="js/bootstrap.min.js" rel="stylesheet">
@@ -41,9 +42,9 @@
   </div> </li>
         </ul>
     </div>
-  
+ <br> 
   <div>
-   <p style="margin-left: 10%;font-size: 30px">Faculty Registration</p>
+  <h3 align="left" style="background-color:green;color:white;padding:20px;margin:0px;border-radius:10px"><b>FACULTY REGISTRATION FORM</b></h3>
   </div>
   
   

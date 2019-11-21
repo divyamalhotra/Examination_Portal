@@ -51,7 +51,7 @@ th {
 	</div>
 
 	<ul class="nav nav-tabs">
-	<li style="float:left;"><a href="home_s.php">Home</a></li>
+	<li style="float:left;"><a href="home.php">Home</a></li>
 	<li class="active" style="background-color:green;">
 	<a data-toggle="tab" href="#home" style="color:white;">Result</a>
 	</li>
@@ -73,10 +73,11 @@ th {
 	</tr>
 	</tr>
     </center>
+<?php include ('config.php') ?>
 <?php 
 
  session_start();
-$con = mysqli_connect('localhost','root','','student');
+$con = $db;
 //mysqli_select_db($con,'assessmentportal');
 if($con === false) 
 {
@@ -145,8 +146,8 @@ $rollno = $_SESSION['username'];
                               <td><?php  printf("%d",$index++); ?></td>
                                <td><?php  printf("%s",$obj[$i]); ?></td>
                                <td><?php  printf("%s",$obj[$i+1]); ?></td>
-							   <td><?php  printf("%d",$obj[$i+6]); ?></td>
-								<td><?php  printf("%d",$obj[$i+7]); ?></td>
+							   <td><?php  printf("%d",$obj[$i+7]); ?></td>
+								<td><?php  printf("%d",$obj[$i+6]); ?></td>
 								<td><?php  printf("%d",$obj[$i+8]); ?></td>
 								<td><?php  printf("%s",$obj[$i+9]); ?></td>
 								

@@ -1,7 +1,8 @@
+<?php include ('config.php') ?>
 <?php
 
 //session_start();
-$con = mysqli_connect('localhost','root','root','assessmentportal');
+$con = $db;//mysqli_connect('localhost','root','root','assessmentportal');
 //mysqli_select_db($con,'assessmentportal');
 if($con === false) 
 {

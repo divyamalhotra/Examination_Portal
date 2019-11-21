@@ -1,6 +1,7 @@
-﻿<?php
+﻿<?php include ('config.php') ?>
+<?php
   session_start();
-$db = mysqli_connect('localhost', 'root', '', 'student');
+//$db = mysqli_connect('localhost', 'root', '', 'student');
 $user = $_SESSION['username'];
 $_SESSION['link'] = 'homeF.php';
 $_SESSION['paper'] = 'selectPapers.php';
@@ -54,16 +55,16 @@ $_SESSION['paper'] = 'selectPapers.php';
 
         <div id="details">
 
-            <div class="det" style="height: 10%;background-color:green;">
+            <div class="det" style="height: 5%;background-color:green;">
                 <p style="color: white;background-color:green;">Profile</p>
             </div>
 			<br><br>
-            <img src="<?php echo $imagesrc; ?>" style="text-align: center" class="img-circle" height='100%' width ='100%' alt="Profile Pic">
+            <img src="<?php echo $imagesrc; ?>" style="text-align: center" class="img-circle" height='15%' width ='100%' alt="Profile Pic">
 			<br>
 			<?php 
 			if(!empty($row['Signature'])){
 			?>
-			<img src="<?php echo $image2src; ?>" style="text-align: center" class="img-circle" height='100%' width ='100%' >
+			<img src="<?php echo $image2src; ?>" style="text-align: center" class="img-circle" height='15%' width ='100%' >
             <hr>
 			<?php }
 			else{
