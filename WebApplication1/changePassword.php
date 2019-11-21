@@ -1,10 +1,11 @@
-﻿<?php  
+﻿<?php include ('config.php') ?>
+<?php  
 	session_start();
 	$errors = array();
 	$user = $_SESSION['username'];
  if(isset($_POST['change_Pass'])){
  	 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'student'); 
+
 	$password = mysqli_real_escape_string($db, $_POST['Password']);
 	$cpass = mysqli_real_escape_string($db, $_POST['confirmPassword']);
 	if($password !== $cpass){

@@ -1,7 +1,7 @@
-﻿<?php  
+﻿<?php include ('config.php') ?>
+<?php  
 	session_start();
 	$errors = array();
-	$db = mysqli_connect('localhost', 'root', '', 'student'); 
 	if(isset($_POST['forget'])){
 		$password = mysqli_real_escape_string($db, $_POST['Password']);
 		$cpass = mysqli_real_escape_string($db, $_POST['confirmPassword']);

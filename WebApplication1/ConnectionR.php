@@ -1,6 +1,7 @@
-﻿<?php 
+﻿<?php include ('config.php') ?>
+<?php 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'student');
+//$db = mysqli_connect('localhost', 'root', '', 'student');
 
 $errors = array(); 
 // REGISTER USER
@@ -41,8 +42,9 @@ if (isset($_POST['submit'])) {
 	$password = password_hash($password,PASSWORD_DEFAULT);
     $pic = addslashes(file_get_contents($_FILES["pic"]["tmp_name"]));
 	$sign = addslashes(file_get_contents($_FILES["sign"]["tmp_name"]));
-
-	$q1 = "Select * from verify where Enrollment_no = '$username' and Branch = '$c_b' and Email = '$email'";
+	$user = ltrim($username, '0');
+	//array_push($errors, "Select * from verify1 where 'Enrollment_No' = '$user' and Course = '$c_b' and Email = '$email' and DOB = '$dob'");
+	$q1 = "Select * from verify1 where Enrollment_No = '$user' and Course = '$c_b' and Email = '$email' and DOB = '$dob'";
 	$results = mysqli_query($db, $q1);
 	$row=mysqli_fetch_assoc($results);
   	if (mysqli_num_rows($results) == 1){
@@ -51,7 +53,7 @@ if (isset($_POST['submit'])) {
 		mysqli_query($db, $query);
 		header('location:front.php');
 	}else{
-			array_push($errors, "Wrong Combination of Enrollment_no, Email Id and Branch");
+			array_push($errors, "Incorrect student details. Please check DOB, Branch and Email ID");
 		}
 	}
 }

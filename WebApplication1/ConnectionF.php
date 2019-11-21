@@ -1,6 +1,7 @@
-﻿<?php 
+﻿<?php include ('config.php') ?>
+<?php 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'student');
+
 
 $errors = array(); 
 // REGISTER USER

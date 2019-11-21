@@ -1,11 +1,12 @@
-﻿<?php session_start();
+﻿<?php include ('config.php') ?>
+<?php session_start();
 
 // initializing variables
 $username = "";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'student');
+
 
 // LOGIN USER
 if (isset($_POST['login_user'])) {

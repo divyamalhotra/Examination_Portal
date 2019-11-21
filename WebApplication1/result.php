@@ -51,7 +51,7 @@ th {
 	</div>
 
 	<ul class="nav nav-tabs">
-	<li style="float:left;"><a href="home_s.php">Home</a></li>
+	<li style="float:left;"><a href="home.php">Home</a></li>
 	<li class="active" style="background-color:green;">
 	<a data-toggle="tab" href="#home" style="color:white;">Result</a>
 	</li>
@@ -73,10 +73,11 @@ th {
 	</tr>
 	</tr>
     </center>
+	<?php include ('config.php') ?>
 <?php 
-  header( "refresh:0");
+  //header( "refresh:0");
  session_start();
-$con = mysqli_connect('localhost','root','','student');
+$con = $db;//mysqli_connect('localhost','root','','student');
 //mysqli_select_db($con,'assessmentportal');
 if($con === false) 
 {

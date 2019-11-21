@@ -272,3 +272,9 @@ span.psw {
     margin: 1px 0px 1px 0px;
     width: 135px;
 }
+#txtbox {
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    height: 15px;
+}

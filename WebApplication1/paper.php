@@ -1,6 +1,7 @@
-﻿<?php
+﻿<?php include ('config.php') ?>
+<?php
 session_start();
-$db = mysqli_connect('localhost', 'root', '', 'student');
+//$db = mysqli_connect('localhost', 'root', '', 'student');
 $user = $_SESSION['username'];
 $sem= 0;
 $errors = array();

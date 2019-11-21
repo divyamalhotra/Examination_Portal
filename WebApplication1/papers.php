@@ -38,11 +38,11 @@ table, th, td {
 	<li style="float:right;"><a href="front.php?logout='1'">log out</a></li>
 </ul>
 
-
+<?php include ('config.php') ?>
 <?php 
 
 session_start();
-$con = mysqli_connect('localhost','root','','student');
+$con = $db;//mysqli_connect('localhost','root','','student');
 //mysqli_select_db($con,'assessmentportal');
 if($con === false) 
 {
